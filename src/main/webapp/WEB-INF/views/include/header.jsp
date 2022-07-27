@@ -21,7 +21,7 @@
 				JOIN
 			</td>
 			<td class="header_menu" width="6%">
-				PROFILE
+				<a href="profile">PROFILE</a>
 			</td>
 			<td class="header_menu" width="7%">
 				QUESTION

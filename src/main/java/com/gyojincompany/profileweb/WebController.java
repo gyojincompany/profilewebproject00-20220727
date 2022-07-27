@@ -16,4 +16,9 @@ public class WebController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/profile")
+	public String profile() {
+		return "profile";
+	}
+	
 }
