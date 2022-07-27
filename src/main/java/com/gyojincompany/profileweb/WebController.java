@@ -41,4 +41,9 @@ public class WebController {
 		return "question";
 	}
 	
+	@RequestMapping(value = "/list")
+	public String list() {
+		return "list";
+	}
+	
 }
