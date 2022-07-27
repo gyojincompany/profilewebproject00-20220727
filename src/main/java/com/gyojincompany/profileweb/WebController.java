@@ -21,4 +21,24 @@ public class WebController {
 		return "profile";
 	}
 	
+	@RequestMapping(value = "/contact")
+	public String contact() {
+		return "contact";
+	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/join")
+	public String join() {
+		return "join";
+	}
+	
+	@RequestMapping(value = "/question")
+	public String question() {
+		return "question";
+	}
+	
 }

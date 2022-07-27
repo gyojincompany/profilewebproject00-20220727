@@ -15,19 +15,19 @@
 				<a href="index">HOME</a>	
 			</td>
 			<td class="header_menu" width="5%">
-				LOGIN
+				<a href="login">LOGIN</a>
 			</td>
 			<td class="header_menu" width="5%">
-				JOIN
+				<a href="join">JOIN</a>
 			</td>
 			<td class="header_menu" width="6%">
 				<a href="profile">PROFILE</a>
 			</td>
 			<td class="header_menu" width="7%">
-				QUESTION
+				<a href="question">QUESTION</a>
 			</td>
 			<td class="header_menu" width="6%">
-				CONTACT
+				<a href="contact">CONTACT</a>
 			</td>
 			<td width="30%">&nbsp;</td>
 		</tr>
