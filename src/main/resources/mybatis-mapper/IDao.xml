@@ -6,6 +6,7 @@
 	
 <mapper namespace="com.gyojincompany.profileweb.dao.IDao">
 	
+	<!-- member SQL -->	
 	<insert id="joinDao">
 		INSERT INTO web_member (mid, mpw, mname, memail) VALUES(#{param1},#{param2},#{param3},#{param4})
 	</insert>
@@ -26,7 +27,13 @@
 		UPDATE web_member SET mpw=#{param1}, mname=#{param2}, memail=#{param3} WHERE mid=#{param4}
 	</update>
 	
+	<!-- Board SQL -->
 	<insert id="writeDao">		
 		INSERT INTO web_board (qnum, qid, qname, qcontent, qemail) VALUES (web_board_seq.nextval,#{param1}, #{param2}, #{param3}, #{param4} )
 	</insert>
+	
+	<select id="listDao" resultType="com.gyojincompany.profileweb.dto.BoardDto">
+		SELECT * FROM web_board ORDER BY qnum DESC
+	</select>
+	
 </mapper>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,30 +38,29 @@
 								<td class="board_title">NAME</td>
 								<td class="board_title">DATE</td>
 							</tr>
+							
+							<c:forEach items="${list }" var="dto">
 							<tr>
-								<td class="board_content">1</td>
-								<td class="board_content">tigerblack</td>
-								<td class="board_content" style="text-align: left;"><a href="#" style="color:black;">안녕하세요!!</a></td>
-								<td class="board_content">홍길동</td>
-								<td class="board_content">2022-05-19 02:21</td>
+								<td class="board_content">${dto.qnum }</td>
+								<td class="board_content">${dto.qid }</td>
+								<td class="board_content" style="text-align: left;">
+									<a href="#" style="color:#0a367a;">
+									<c:choose>
+										<c:when test="${fn:length(dto.qcontent) > 25}">
+											<c:out value="${fn:substring(dto.qcontent,0,25)}"></c:out>...
+										</c:when>
+										<c:otherwise>
+											<c:out value="${dto.qcontent }"></c:out>
+										</c:otherwise>									
+									</c:choose>
+									</a>
+								</td>
+								<td class="board_content">${dto.qname }</td>
+								<td class="board_content">
+									<c:out value="${fn:substring(dto.qdate,0,16) }"></c:out>									
+								</td>
 							</tr>
-							
-							<tr>
-								<td class="board_content">1</td>
-								<td class="board_content">tiger</td>
-								<td class="board_content">안녕하세요!!</td>
-								<td class="board_content">홍길동</td>
-								<td class="board_content">2022-05-19 02:21</td>
-							</tr>
-							
-							<tr>
-								<td class="board_content">1</td>
-								<td class="board_content">tiger</td>
-								<td class="board_content">안녕하세요!!</td>
-								<td class="board_content">홍길동</td>
-								<td class="board_content">2022-05-19 02:21</td>
-							</tr>						
-							
+							</c:forEach>
 							
 							<tr>
 								<td colspan="5" align="right">
