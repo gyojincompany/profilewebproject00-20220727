@@ -42,8 +42,8 @@
 						</c:when>						
 						<c:otherwise>					
 							<span class="content_text">
-							${mid }님 안녕하세요. 반갑습니다.<br>
-							아이디 ${mname }로 로그인에 성공하셨습니다.<br>														
+							${mname }님 안녕하세요. 반갑습니다.<br>
+							아이디 ${mid }로 로그인에 성공하셨습니다.<br>														
 							</span>						
 						</c:otherwise>						
 						</c:choose>

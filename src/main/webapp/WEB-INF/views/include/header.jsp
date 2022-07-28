@@ -15,10 +15,31 @@
 				<a href="index">HOME</a>	
 			</td>
 			<td class="header_menu" width="5%">
+				<%				
+					String sessionId = (String) session.getAttribute("sid");
+					if(sessionId == null) {
+				%>
 				<a href="login">LOGIN</a>
+				<%				
+					} else {
+				%>
+				<a href="logout">LOOUT</a>
+				<%
+					}
+				%>
 			</td>
 			<td class="header_menu" width="5%">
+				<%					
+					if(sessionId == null) {
+				%>
 				<a href="join">JOIN</a>
+				<%				
+					} else {
+				%>
+				<a href="infoModify">MODIFY</a>
+				<%
+					}
+				%>
 			</td>
 			<td class="header_menu" width="6%">
 				<a href="profile">PROFILE</a>
