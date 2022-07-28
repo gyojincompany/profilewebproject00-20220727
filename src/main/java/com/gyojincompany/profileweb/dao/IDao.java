@@ -12,4 +12,6 @@ public interface IDao {
 	public void infoModifyDao(String mpw, String mname, String memail, String mid);//회원정보 수정 메서드
 	
 	//board 관련 dao 메서드
+	public void writeDao(String qid, String qname, String qcontent, String qemail);//게시판 글쓰기
+	
 }

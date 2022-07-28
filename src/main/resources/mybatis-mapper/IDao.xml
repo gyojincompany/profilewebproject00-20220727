@@ -26,4 +26,7 @@
 		UPDATE web_member SET mpw=#{param1}, mname=#{param2}, memail=#{param3} WHERE mid=#{param4}
 	</update>
 	
+	<insert id="writeDao">		
+		INSERT INTO web_board (qnum, qid, qname, qcontent, qemail) VALUES (web_board_seq.nextval,#{param1}, #{param2}, #{param3}, #{param4} )
+	</insert>
 </mapper>

@@ -50,7 +50,24 @@ public class WebController {
 	}
 	
 	@RequestMapping(value = "/question")
-	public String question() {
+	public String question(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		
+		String sid = (String) session.getAttribute("sid");
+		String sname = (String) session.getAttribute("sname");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);				
+		
+		if(sid != null) {
+			MemberDto memberDto = dao.memberInfoDao(sid);
+			
+			model.addAttribute("memberDto", memberDto);
+			
+		} else {
+			model.addAttribute("sid", "GUEST");
+			model.addAttribute("sname", "");
+		}
+		
 		return "question";
 	}
 	
@@ -161,5 +178,19 @@ public class WebController {
 		return "infoModifyOk";
 	}
 	
+	@RequestMapping(value = "/write", method=RequestMethod.POST)
+	public String write(HttpServletRequest request, Model model) {
+		
+		String qid = request.getParameter("qid");
+		String qname = request.getParameter("qname");
+		String qcontent = request.getParameter("qcontent");
+		String qemail = request.getParameter("qemail");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.writeDao(qid, qname, qcontent, qemail);
+		
+		return "redirect:list";
+	}
 	
 }
