@@ -1,6 +1,7 @@
 package com.gyojincompany.profileweb;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,5 +85,38 @@ public class WebController {
 		
 		return "joinOk";
 	}
+	
+	@RequestMapping(value = "/loginOk", method=RequestMethod.POST)
+	public String loginOk(HttpServletRequest request, Model model) {
+		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		int checkId = dao.checkIdDao(mid);//1이 반환되면 아이디가 존재		
+		
+		int checkIdPw = dao.checkIdPwDao(mid, mpw);//아이디와 비밀번호가 모두 일치하면 1이 반환
+		
+		model.addAttribute("checkId", checkId);
+		model.addAttribute("checkIdPw", checkIdPw);
+		
+		if (checkIdPw == 1) {
+			
+			MemberDto memberDto = dao.memberInfoDao(mid);//로그인한 아이디의 모든 정보를 dto로 반환
+			
+			//비밀번호체크
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("sid", memberDto.getMid());
+			session.setAttribute("sname", memberDto.getMname());
+			
+			model.addAttribute("mid", memberDto.getMid());
+			model.addAttribute("mname", memberDto.getMname());
+		}
+		
+		return "loginOk";
+	}
+	
 	
 }
