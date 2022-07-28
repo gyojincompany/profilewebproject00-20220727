@@ -15,6 +15,14 @@ td.header_menu {
 	
 }
 
+span.login_text {
+	
+	font-size: 14px;
+	color: #0a0468;
+	font-family: malgun;	
+	
+}
+
 a:link {
 	
 	text-decoration: none;

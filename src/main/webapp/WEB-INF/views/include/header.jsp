@@ -53,7 +53,16 @@
 			<td width="30%">&nbsp;</td>
 		</tr>
 		<tr height="40">
-			<td>&nbsp;</td>
+			<%
+				String sname = (String)session.getAttribute("sname");
+				if(sname != null) {
+			%>
+			<td colspan="8" align="right">			
+				<span class="login_text"><b><%= sname %></b>님 로그인 중입니다.&nbsp;&nbsp;&nbsp;</span>
+			</td>
+			<%
+				}
+			%>
 		</tr>	
 	</table>
 </body>
