@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +26,27 @@
 		<tr>
 			<table width="70%" cellspacing="0" border="0" cellpadding="10">
 				<tr height="534">
-					<td bgcolor="#4375DB" align="center">
-						<span class="content_text">
-							${ }님 안녕하세요. 반갑습니다.<br>
-							아이디 ${ }로 로그인에 성공하셨습니다.<br>														
-						</span>
+					<td bgcolor="#4375DB" align="center">					
+						<c:choose>
+						<c:when test="${checkId == '0'}">
+							<script type="text/javascript">
+								alert("입력하신 아이디는 존재하지 않는 아이디입니다. 다시 확인해주세요.");
+								history.go(-1);								
+							</script>						
+						</c:when>						
+						<c:when test="${checkIdPw == '0' }">
+							<script type="text/javascript">
+								alert("입력하신 비밀번호가 맞지 않습니다. 다시 확인해주세요.");
+								history.go(-1);								
+							</script>
+						</c:when>						
+						<c:otherwise>					
+							<span class="content_text">
+							${mid }님 안녕하세요. 반갑습니다.<br>
+							아이디 ${mname }로 로그인에 성공하셨습니다.<br>														
+							</span>						
+						</c:otherwise>						
+						</c:choose>
 					</td>					
 				</tr>				
 			</table>		
