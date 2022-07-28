@@ -58,7 +58,7 @@
 				if(sname != null) {
 			%>
 			<td colspan="8" align="right">			
-				<span class="login_text"><b><%= sname %></b>님 로그인 중입니다.&nbsp;&nbsp;&nbsp;</span>
+				<span class="login_text"><b><%= sessionId %></b>님 로그인 중입니다.&nbsp;&nbsp;&nbsp;</span>
 			</td>
 			<%
 				}

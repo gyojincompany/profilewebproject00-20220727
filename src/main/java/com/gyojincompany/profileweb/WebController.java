@@ -126,5 +126,40 @@ public class WebController {
 		return "login";
 	}
 	
+	@RequestMapping(value = "/infoModify")
+	public String infoModify(HttpServletRequest request, Model model) {
+			
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		HttpSession session = request.getSession();
+		
+		String sid = (String) session.getAttribute("sid");
+		
+		MemberDto memberDto = dao.memberInfoDao(sid);//로그인한 아이디의 모든 정보를 dto로 반환
+		
+		model.addAttribute("memberDto", memberDto);
+		
+		return "infoModify";
+	}
+	
+	@RequestMapping(value = "/infoModifyOk")
+	public String infoModifyOk(HttpServletRequest request, Model model) {
+		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		String mname = request.getParameter("mname");
+		String memail = request.getParameter("memail");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.infoModifyDao(mpw, mname, memail, mid);
+		
+		MemberDto memberDto = dao.memberInfoDao(mid);//정보를 수정한 아이디의 모든 정보를 dto로 반환
+		
+		model.addAttribute("memberDto", memberDto);
+		
+		return "infoModifyOk";
+	}
+	
 	
 }

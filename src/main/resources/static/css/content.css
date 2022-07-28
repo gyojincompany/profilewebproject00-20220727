@@ -9,6 +9,15 @@ span.content_text {
 	
 }
 
+span.info_text {
+	
+	font-size: 20px;
+	color: #0a0468;
+	font-family: malgun;
+	font-weight: normal;
+	
+}
+
 input.input_box {
 	
 	border: 1px solid #0a367a;
