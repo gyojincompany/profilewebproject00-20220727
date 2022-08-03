@@ -36,4 +36,8 @@
 		SELECT * FROM web_board ORDER BY qnum DESC
 	</select>
 	
+	<select id="contentViewDao" resultType="com.gyojincompany.profileweb.dto.BoardDto">
+		SELECT * FROM web_board WHERE qnum=#{param1}
+	</select>
+	
 </mapper>

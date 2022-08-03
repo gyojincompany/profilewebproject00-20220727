@@ -30,25 +30,25 @@
 							<form action="qModify" method="post">
 								<tr>
 									<td><span class="content_text">MEMBER ID : </span></td>
-									<td><input class="input_box" type="text" name="qid" value="${ }" readonly></td>
+									<td><input class="input_box" type="text" name="qid" value="${contentDto.qid }" readonly></td>
 								</tr>
 								<tr>
 									<td><span class="content_text">NAME : </span></td>
-									<td><input class="input_box" type="text" name="qname" value="${ }"></td>
+									<td><input class="input_box" type="text" name="qname" value="${contentDto.qname }"></td>
 								</tr>
 								<tr>
 									<td valign="top"><span class="content_text">QUESTION : </span></td>
 									<td>
-										<textarea class="questiontext" rows="5" cols="25">${ }</textarea>
+										<textarea class="questiontext" rows="5" cols="25">${contentDto.qcontent }</textarea>
 									</td>
 								</tr>								
 								<tr>
 									<td><span class="content_text">EMAIL : </span></td>
-									<td><input class="input_box" type="text" name="qemail" value="${ }"></td>
+									<td><input class="input_box" type="text" name="qemail" value="${contentDto.qemail }"></td>
 								</tr>
 								<tr>
 									<td><span class="content_text">JOINDATE : </span></td>
-									<td><input class="input_box" type="text" name="qdate" value="${ }" readonly></td>
+									<td><input class="input_box" type="text" name="qdate" value="${contentDto.qdate }" readonly></td>
 								</tr>
 								<tr>
 									<td colspan="2">

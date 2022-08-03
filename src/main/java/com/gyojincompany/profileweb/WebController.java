@@ -203,4 +203,19 @@ public class WebController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping(value = "/qview")
+	public String qview(HttpServletRequest request, Model model) {
+		
+		String qnum = request.getParameter("qnum");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		BoardDto boardDto = dao.contentViewDao(qnum);
+		
+		model.addAttribute("contentDto", boardDto);
+		
+		
+		return "qview";
+	}
+	
 }
