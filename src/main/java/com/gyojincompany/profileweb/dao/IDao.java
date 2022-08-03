@@ -19,5 +19,7 @@ public interface IDao {
 	public ArrayList<BoardDto> listDao();//게시판 글목록 가져오기
 	public BoardDto contentViewDao(String qnum);//게시판 글 내용 가져오기
 	public void deleteDao(String qnum);//게시판 글 삭제
+	public void qmodifyDao(String qname, String qcontent, String qemail, String qnum);
+	//게시판 글 내용 수정하기
 	
 }

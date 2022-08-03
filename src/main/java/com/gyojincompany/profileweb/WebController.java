@@ -213,6 +213,8 @@ public class WebController {
 		BoardDto boardDto = dao.contentViewDao(qnum);
 		
 		model.addAttribute("contentDto", boardDto);
+	
+		model.addAttribute("boardId", boardDto.getQid());
 		
 		
 		return "qview";
@@ -230,13 +232,18 @@ public class WebController {
 		return "redirect:list";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(value = "/qModify")
+	public String modify(HttpServletRequest request, Model model) {
+		
+		String qname = request.getParameter("qname");
+		String qcontent = request.getParameter("qcontent"); 
+		String qemail = request.getParameter("qemail");
+		String qnum = request.getParameter("qnum");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.qmodifyDao(qname, qcontent, qemail, qnum);
+		
+		return "redirect:list";
+	}	
 }
