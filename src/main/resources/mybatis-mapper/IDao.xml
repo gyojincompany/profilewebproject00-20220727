@@ -40,4 +40,8 @@
 		SELECT * FROM web_board WHERE qnum=#{param1}
 	</select>
 	
+	<delete id="deleteDao">
+		DELETE FROM web_board WHERE qnum=#{param1}
+	</delete>
+	
 </mapper>

@@ -53,10 +53,15 @@
 								<tr>
 									<td colspan="2">
 										<input class="button" type="submit" value="MODIFY">&nbsp;&nbsp;
-										<input class="button" type="button" value="LIST" onclick="location.href='list'">
+										<input class="button" type="button" value="DELETE" onclick="location.href='delete?qnum='+${contentDto.qnum}">						
 									</td>
 								</tr>
-							</form>						
+								<tr>
+									<td colspan="2" align="right">
+										<input class="button" type="button" value="LIST" onclick="location.href='list'">
+									</td>
+								</tr>								
+							</form>			
 						</table>
 					</td>					
 				</tr>				

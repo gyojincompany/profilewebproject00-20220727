@@ -18,5 +18,6 @@ public interface IDao {
 	public void writeDao(String qid, String qname, String qcontent, String qemail);//게시판 글쓰기
 	public ArrayList<BoardDto> listDao();//게시판 글목록 가져오기
 	public BoardDto contentViewDao(String qnum);//게시판 글 내용 가져오기
+	public void deleteDao(String qnum);//게시판 글 삭제
 	
 }

@@ -218,4 +218,25 @@ public class WebController {
 		return "qview";
 	}
 	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request, Model model) {
+		
+		String qnum = request.getParameter("qnum");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.deleteDao(qnum);
+		
+		return "redirect:list";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
