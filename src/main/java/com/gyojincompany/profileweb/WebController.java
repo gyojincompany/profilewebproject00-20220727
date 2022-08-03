@@ -102,6 +102,11 @@ public class WebController {
 		
 			dao.joinDao(mid, mpw, mname, memail);
 			
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("sid", mid);
+			session.setAttribute("sname", mname);
+			
 			model.addAttribute("mname", mname);
 			model.addAttribute("mid", mid);
 			

@@ -23,7 +23,7 @@
 				<%				
 					} else {
 				%>
-				<a href="logout">LOOUT</a>
+				<a href="logout">LOGOUT</a>
 				<%
 					}
 				%>
