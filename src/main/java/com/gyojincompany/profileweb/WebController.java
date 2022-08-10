@@ -141,11 +141,14 @@ public class WebController {
 			//비밀번호체크
 			HttpSession session = request.getSession();
 			
-			session.setAttribute("sid", memberDto.getMid());
-			session.setAttribute("sname", memberDto.getMname());
+			String memberid = memberDto.getMid();
+			String membername = memberDto.getMname();
 			
-			model.addAttribute("mid", memberDto.getMid());
-			model.addAttribute("mname", memberDto.getMname());
+			session.setAttribute("sid", memberid);
+			session.setAttribute("sname", membername);
+			
+			model.addAttribute("mid", memberid);
+			model.addAttribute("mname", membername);
 		}
 		
 		return "loginOk";
@@ -219,8 +222,10 @@ public class WebController {
 		BoardDto boardDto = dao.contentViewDao(qnum);
 		
 		model.addAttribute("contentDto", boardDto);
+		
+		String qid= boardDto.getQid();
 	
-		model.addAttribute("boardId", boardDto.getQid());
+		model.addAttribute("boardId", qid);
 		
 		
 		return "qview";

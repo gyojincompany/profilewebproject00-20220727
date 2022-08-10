@@ -57,6 +57,9 @@
 								<%										
 									String sid = (String) session.getAttribute("sid");
 									String qid = request.getAttribute("boardId").toString();
+									if (sid == null) {
+										sid = "GUEST";
+									}
 									
 									if((sid != null) && (sid.equals(qid)) || (sid.equals("admin"))) {
 								%>								
